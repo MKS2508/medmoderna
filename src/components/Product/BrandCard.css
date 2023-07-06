@@ -1,0 +1,57 @@
+.brandCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    transition: 0.8s;
+    text-decoration: none;
+    margin: 15px;
+}
+
+.brandCard-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.brandCard-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiar a "contain" para ajustar la imagen dentro del contenedor */
+    transition: 0.8s;
+}
+
+.brandCard:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.brandCard:hover .brandCard-img {
+    transform: scale(1.1);
+}
+
+/* Responsive styles for small screens */
+@media screen and (max-width: 768px) {
+    .brandCard {
+        width: 45vw;
+        height: 100px;
+        margin: 10px;
+    }
+}
+
+/* Responsive styles for very small screens */
+@media screen and (max-width: 480px) {
+    .brandCard {
+        width: 90vw;
+        height: 80px;
+        margin: 5px;
+    }
+}

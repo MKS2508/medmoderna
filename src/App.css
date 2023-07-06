@@ -1,0 +1,26 @@
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', "Roboto Light", serif!important;
+}
+
+
+
+body{
+  overflow-x: hidden;
+  opacity: 1;
+  background-image: radial-gradient(#56be2d 1.9500000000000002px, #e5e5f7 1.9500000000000002px);
+  background-size: 39px 39px;
+}
+
+*::after,*::before {
+  box-sizing: border-box;
+}
+
+@media (max-width: 440px) {
+  body {
+    overflow-x: hidden;
+  }
+}

@@ -1,0 +1,19 @@
+.mapa-title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.mapa-container {
+    justify-content: center;
+
+}
+
+.google-map-code iframe {
+    border: 0;
+    border-radius: 10%;
+    max-width: 100%;
+}
+
+/* Responsive styles for small screens */

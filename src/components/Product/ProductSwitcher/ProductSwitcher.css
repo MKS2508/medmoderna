@@ -1,0 +1,46 @@
+.productSwitcher {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.switcherButton {
+    position: relative;
+    left: 44vw;
+    background: none;
+    border: none;
+    color: #72B957;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: 0.5s;
+}
+
+.switcherButton:hover {
+    color: #ffffff;
+}
+
+.switcherTitle {
+    position: relative;
+
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+
+    .switcherButton {
+        position: relative;
+        left: 25vw;
+        background: none;
+        border: none;
+        color: #72B957;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin: 0 10px;
+        transition: 0.5s;
+    }
+}

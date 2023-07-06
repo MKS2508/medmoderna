@@ -1,0 +1,32 @@
+.facebook-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    background-color: whitesmoke;
+}
+
+.facebook-posts {
+    display: flex;
+    justify-content: center;
+    padding-top: 10rem;
+}
+
+.facebook-post {
+    background-color: white;
+    border-radius: 20%;
+    margin-bottom: 2rem;
+}
+
+/* Responsive styles for small screens */
+@media screen and (max-width: 768px) {
+    .facebook-posts {
+        flex-wrap: wrap;
+        padding-top: 2rem;
+    }
+
+    .facebook-post {
+        margin-bottom: 1rem;
+        width: 80%;
+    }
+}
