@@ -233,7 +233,11 @@ const StyledReactSearchAutocomplete = styled.div`
   }
 
   &::placeholder {
-    opacity: 0.5;
+    opacity: 0.8;
+  }
+  input::placeholder {
+    color: black; /* Cambia '#color-code' con el código de color que deseas */
+    opacity: 0.8;
   }
 `;
 const TopBarIcons = styled.div`

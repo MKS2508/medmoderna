@@ -46,6 +46,7 @@
 }
 
 .details-button {
+    z-index: 999;
     background-color: rgba(114, 185, 87, 0.7);
 }
 
@@ -368,6 +369,7 @@
 }
 
 .prod-card-new:not(:hover) .prod-price-new {
+    margin-top: 30px;
     transform: scale(1);
     box-shadow: none;
 }

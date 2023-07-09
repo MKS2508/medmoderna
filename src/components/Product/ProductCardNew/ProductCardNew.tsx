@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { motion } from "framer-motion";
 import {AiOutlineEye} from "react-icons/ai";
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -70,6 +72,7 @@ const ProductCardNew: React.FC<IProductCardProps> = ({ name, productId,  descrip
             progress: undefined,
         });
     };
+    const navigate = useNavigate();
 
     return (
         <>
@@ -99,7 +102,7 @@ const ProductCardNew: React.FC<IProductCardProps> = ({ name, productId,  descrip
                     <div className={!mobileVersion ? "prod-details-new" : "prod-details-mobile"}>
                         <div className={!mobileVersion ? "prod-price-new" : "prod-price-mobile"}><span>{price.toFixed(2)}€</span></div>
                         <div className={!mobileVersion ? "prod-card-new-button-container" : "prod-card-mobile-button-container"}>
-                            <button className={!mobileVersion ? "prod-card-new-button details-button" : "prod-card-mobile-button details-button-mobile"}>
+                            <button onClick={() => {navigate(`/product/${productId}`)}} className={!mobileVersion ? "prod-card-new-button details-button" : "prod-card-mobile-button details-button-mobile"}>
                                 <AiOutlineEye size="30" />
                             </button>
                             <button className={!mobileVersion ? "prod-card-new-button cart-button" : "prod-card-mobile-button cart-button-mobile"}>
