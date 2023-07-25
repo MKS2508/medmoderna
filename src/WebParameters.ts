@@ -14,10 +14,10 @@ export const VIDEO_LINK_2= "https://medmoderna.b-cdn.net/videohome3.mp4";
 export const VIDEO_LINK_3= "https://medmoderna.b-cdn.net/videohome3.mp4";
 export const VIDEO_LINK_4= "https://medmoderna.b-cdn.net/videohome3.mp4";
 
-import fondo from './assets/fondo1.png'
+import fondo from './assets/fondo1.webp'
 import posterGifVideo1 from './assets/gif-poster-video-1.gif'
-import fondo3 from './assets/fondo3.png'
-import fondo2 from './assets/fondo2.png'
+import fondo3 from './assets/fondo3.webp'
+import fondo2 from './assets/fondo2.webp'
 import {RiPlantFill} from "react-icons/ri";
 import {GiLightBulb} from "react-icons/gi";
 import {IoIosShirt} from "react-icons/io";
