@@ -1,4 +1,3 @@
-LABEL authors="MKS2508"
 # Etapa de construcción
 FROM node:latest AS build
 
@@ -31,3 +30,4 @@ EXPOSE 80 443
 
 # Iniciar Nginx
 CMD ["nginx", "-g", "daemon off;"]
+LABEL authors="MKS2508"
