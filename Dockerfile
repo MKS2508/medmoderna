@@ -22,7 +22,7 @@ COPY --from=build /app/dist /usr/share/nginx/html
 
 # Copiar la configuración de Nginx
 COPY medmoderna/nginx.conf /etc/nginx/conf.d/default.conf
-COPY medmoderna/_.medicinamodernagrow.shop_private_key.key /etc/nginx/ssl/nginx.key
+COPY medmoderna/medicinamodernagrowshop_private_key.key /etc/nginx/ssl/nginx.key
 COPY medmoderna/medicinamodernagrow.crt /etc/nginx/ssl/nginx.crt
 
 # Exponer el puerto 80 y 443
