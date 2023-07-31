@@ -8,7 +8,7 @@ export const INSTAGRAM_LINK_2= "https://www.instagram.com/p/Cd8uyvXswLL/embed";
 export const INSTAGRAM_LINK_3= "https://www.instagram.com/p/Cd8uyvXswLL/embed";
 export const INSTAGRAM_LINK_4=  "https://www.instagram.com/p/Cd8uyvXswLL/embed";
 
-export const VIDEO_LINK_1= "https://medmoderna.b-cdn.net/videohome3.mp4";
+export const VIDEO_LINK_1= "https://medmoderna.b-cdn.net/videoho2me3.mp4";
 export const VIDEO_POSTER_1= posterGifVideo1;
 export const VIDEO_LINK_2= "https://medmoderna.b-cdn.net/videohome3.mp4";
 export const VIDEO_LINK_3= "https://medmoderna.b-cdn.net/videohome3.mp4";
