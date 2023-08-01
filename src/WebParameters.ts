@@ -29,7 +29,7 @@ export const IMAGEN_CARRUSEL_1 = fondo;
 export const IMAGEN_CARRUSEL_2 = fondo2;
 export const IMAGEN_CARRUSEL_3 = fondo3;
 
-export const TEXTO_DESCRIPTIVO= "Bieenvenidos a Medicina Moderna Grow Shop, tu tienda online de confianza ubicada en Logroño, dedicada al apasionante mundo del cáñamo, con especialización en CBD en flor y cosméticos. Ofrecemos una gran selección de productos esenciales para el cultivo, tanto en interiores como en exteriores, y una variada gama de parafernalia e iluminación."+
+export const TEXTO_DESCRIPTIVO= "Bienvenidos a Medicina Moderna Grow Shop, tu tienda online de confianza ubicada en Logroño, dedicada al apasionante mundo del cáñamo, con especialización en CBD en flor y cosméticos. Ofrecemos una gran selección de productos esenciales para el cultivo, tanto en interiores como en exteriores, y una variada gama de parafernalia e iluminación."+
     "\n"+
     "En Medicina Moderna, queremos hacer sencillo y accesible para todos el cultivo de plantas. Nos encanta compartir nuestro conocimiento y pasión por el cáñamo, y estamos aquí para ayudarte en cada paso de tu viaje. Explora nuestra tienda, descubre nuestra cuidada selección y únete a nuestra creciente comunidad.";
 
