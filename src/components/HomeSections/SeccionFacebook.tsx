@@ -1,5 +1,4 @@
 import React from 'react';
-import './SeccionFacebook.css';
 import {FacebookEmbed} from 'react-social-media-embed';
 import SeccionResponsiveVideoBackground from "./SeccionResponsiveVideoBackground";
 import BrandCard from "../Product/BrandCard";

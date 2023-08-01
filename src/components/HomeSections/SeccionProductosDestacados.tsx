@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import "./SeccionProductosDestacados.css";
 import SeccionResponsiveVideoBackground from "./SeccionResponsiveVideoBackground";
 import ProductCardNew from "../Product/ProductCardNew/ProductCardNew";
 import {CATEGORIES} from "../../WebParameters";
@@ -102,36 +101,36 @@ const SeccionProductosDestacados: React.FC<IProductSwitcherProps> = ({
                         <h1>{title}</h1>
                         <span className="category-switcher">
 
-                        <motion.h2
-                            className="animated-category-name"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.5 }}
-                            key={categoryIndex}
-                        >
-                        {CATEGORIES[categoryIndex].name}
-                        </motion.h2>
-                    <button className="switcher-button" onClick={handlePrevCategory}>
-                        <FaChevronLeft/>
-                    </button>
-                    <button className="switcher-button" onClick={handleNextCategory}>
-                        <FaChevronRight/>
-                    </button>
-                        </span>
+                    <motion.h2
+                        className="animated-category-name"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.5 }}
+                        key={categoryIndex}
+                    >
+                    {CATEGORIES[categoryIndex].name}
+                    </motion.h2>
+                <button className="switcher-button" onClick={handlePrevCategory}>
+                    <FaChevronLeft/>
+                </button>
+                <button className="switcher-button" onClick={handleNextCategory}>
+                    <FaChevronRight/>
+                </button>
+                    </span>
                     </div>
 
                 }
                 mobileStack={mobileStack}
                 isVideoFetched={isVideoFetched}
-                height={(window.innerWidth >= 768) ? height : "95vh"}
+                height={(windowSize.width >= 768) ? height : "95vh"}
             >
                 {getVisibleProducts().map((item, index) => (
                     <>
                         <ProductCardNew
                             blur={"12px"}
                             key={item.name + Math.floor(Math.random() * 10001).toString()}
-                            index={index} // Añade el índice aquí
+                            index={index}
                             imgSrc={item.imgSrc}
                             description={item.description}
                             mobileVersion={false}
@@ -148,6 +147,7 @@ const SeccionProductosDestacados: React.FC<IProductSwitcherProps> = ({
             </SeccionResponsiveVideoBackground>
         </section>
     );
+
 };
 
 export default SeccionProductosDestacados;

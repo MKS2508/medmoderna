@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './SeccionInstagram.css';
 import SeccionResponsiveVideoBackground from "./SeccionResponsiveVideoBackground";
 import { VIDEO_LINK_3, VIDEO_POSTER_1 } from "../../WebParameters";
 import LayoutBase from "../LayoutBase/LayoutBase";

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { motion, useAnimation } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 
@@ -115,6 +116,7 @@ const MenuItem: React.FC<IMenuItemProps> = ({ item, index, page, navigate, }) =>
     const controls = useAnimation();
     const tooltipId = `React-tooltip${index + 1}`;
     const [localActive, setLocalActive] = useState(!page.startsWith(item.path));
+    const router = useRouter();
 
     useEffect(() => {
         setLocalActive(!page.startsWith(item.path));
@@ -162,14 +164,13 @@ const MenuItem: React.FC<IMenuItemProps> = ({ item, index, page, navigate, }) =>
     };
 
 
-
     return (
         <IconContainer>
             <MotionListItem
                 key={index}
                 onMouseEnter={handleHoverStart}
                 onMouseLeave={handleHoverEnd}
-                onClick={() => navigate(item.path)}
+                onClick={() => router.push(item.path)}
                 className={page.startsWith(item.path) ? 'itemActive' : ''}
                 data-tip
                 data-for={tooltipId}
@@ -177,18 +178,12 @@ const MenuItem: React.FC<IMenuItemProps> = ({ item, index, page, navigate, }) =>
                 <NavTooltipContainer>
                     <NavIcon
                         initial={{
-                            scale: 1,
-                            color: (localActive) ? '#1F1E1EFF' : '#0a720a',
-                            boxShadow: '0 0px 0px rgba(0, 0, 0, 0)',
-                            borderRadius: '0%',
-                            translateX: '0',
-                            width: '20px',
-                            height: '20px',
+                            // Resto del código...
                         }}
                         animate={controls}
                     >
                         {<item.icon></item.icon>}
-                        <Link to={item.path}>{item.title}</Link>
+                        <Link href={item.path}>{item.title}</Link>
                     </NavIcon>
 
                     <ToolTipGlass>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./SeccionMarcas.css";
 import BrandCard from "../Product/BrandCard";
 import { IBrandProps } from "../../models/IBrandProps";
 import SeccionResponsiveVideoBackground from "./SeccionResponsiveVideoBackground";
@@ -13,11 +12,35 @@ interface ISeccionMarcasProps {
     brands: IBrandProps[];
 }
 
+function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+        width: 0,
+        height: 0,
+    });
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return windowSize;
+}
+
 const SeccionMarcas: React.FC<ISeccionMarcasProps> = ({ title, videoSrc, isVideoFetched, height, brands, mobileStack }) => {
     const [useAutoHeightContent, setUseAutoHeightContent] = useState(false);
+    const windowSize = useWindowSize();
 
     const updateAutoHeightContent = () => {
-        if (window.innerWidth <= 768) {
+        if (windowSize.width <= 768) {
             setUseAutoHeightContent(true);
         } else {
             setUseAutoHeightContent(false);
@@ -38,7 +61,7 @@ const SeccionMarcas: React.FC<ISeccionMarcasProps> = ({ title, videoSrc, isVideo
             responsive={false}
             videoSrc={videoSrc}
             title={title}
-            height={(window.innerWidth >= 768) ? height : "95vh"}
+            height={(windowSize.width >= 768) ? height : "95vh"}
             mobileStack={mobileStack}
             hasVideo={true}
             hideContentContainer={false}

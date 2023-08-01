@@ -102,7 +102,7 @@ const SubmitButton = styled.button`
   }
 `;
 
-Modal.setAppElement('#root');
+//Modal.setAppElement('#root');
 
 const LoginComponent = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);

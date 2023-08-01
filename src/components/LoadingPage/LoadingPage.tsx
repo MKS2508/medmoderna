@@ -3,7 +3,6 @@
 // LoadingPage.tsx
 import React from 'react';
 import { MoonLoader, ClipLoader, CircleLoader, RingLoader, BeatLoader } from 'react-spinners';
-import './LoadingPage.css';
 import logo from "../../assets/logo3.png";
 
 interface LoadingPageProps {

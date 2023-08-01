@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./SeccionResponsiveVideoBackground.css";
 import axios from "axios";
 import {VIDEO_LINK_3, VIDEO_POSTER_1} from "../../WebParameters";
 import LazyLoad from "react-lazyload";

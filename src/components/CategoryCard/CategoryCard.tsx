@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 import { IconType } from "react-icons";
-import "./CategoryCard.css";
 
 interface ICategoryProps {
     name: string;
@@ -14,9 +13,10 @@ const CategoryCard = (props: ICategoryProps) => {
 
     return (
         <div className="categoryCard">
-            <Link to={props.link} className="categoryCard-link">
-                <Icon className="categoryCard-icon" />
-                <span className="categoryCard-text">{props.name}</span>
+            <Link href={props.link} className="categoryCard-link">
+                    <Icon className="categoryCard-icon" />
+                    <span className="categoryCard-text">{props.name}</span>
+
             </Link>
         </div>
     );

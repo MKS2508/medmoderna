@@ -114,7 +114,7 @@ function Navigation() {
       <ul>
         <li>
           <Link href="/">
-            <a>Home</a>
+            <a>Index</a>
           </Link>
         </li>
         <li>

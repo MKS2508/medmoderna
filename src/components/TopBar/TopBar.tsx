@@ -1,23 +1,19 @@
 import React, {useEffect, useState} from 'react'
+import { useRouter } from 'next/router'
 
-import {Link, useNavigate} from 'react-router-dom'
-import './TopBar.css'
-import 'font-awesome/css/font-awesome.css';
-import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 // @ts-ignore
-import ScrollText from 'react-scroll-text'
 import {config} from "@fortawesome/fontawesome-svg-core";
-import {RiPlantFill, RiInstagramFill, RiWhatsappFill, RiShoppingCart2Fill, RiUser2Fill} from "react-icons/ri";
+import { RiShoppingCart2Fill, RiUser2Fill} from "react-icons/ri";
 import logo from '../../assets/logo4.png'
 import {AnimatePresence, motion} from "framer-motion";
 import {IProductProps} from "../../models/IProductProps";
 import {getProductsFromQuery, postProduct} from "../../services/api-products-service";
 import {ReactSearchAutocomplete} from 'react-search-autocomplete'
 import ProductCardList from "../Product/ProductCardList";
-import styled, {createGlobalStyle, css, keyframes} from "styled-components";
+import styled, { css, keyframes} from "styled-components";
 import LoginComponent, {GoogleSignInButton} from "../Login/LoginModa";
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import Cart from "../ShoppingCart/ShoppingCart";
+import {MiniHeader, TopBarElement} from "../../pages/_app";
 
 export const device = {
     mobileS: '320px',
@@ -31,93 +27,6 @@ export const device = {
     desktopL: '2560px',
 };
 
-export const GlobalStyle = createGlobalStyle`
-
-
-  @media (max-width: ${device.mobile}) {
-    :root {
-      --topbar-height: 10vh;
-      --miniheader-height: 6vh;
-      --sidebar-width: clamp(10vw, 17vw, 25vw)!important;
-      --nav-item-padding: clamp(0.5rem, 0.5rem, 0.6rem);
-      --sidebar-height: calc(100vh - var(--topbar-height) - var(--miniheader-height))!important;
-    }
-  }
-  @media (max-width: ${device.tablet}) {
-    /*
-    :root {
-      --sidebar-width: clamp(4vw,7vw,10vw);
-      --nav-item-padding: clamp(0.5rem, 2vh, 1rem);
-      --sidebar-height: calc(104vh - var(--topbar-height) - var(--miniheader-height));
-
-      --topbar-height: 10vh;
-  
-      --miniheader-height: 5vh;
-    }
-    
-     */
-  }
-  @media (max-width:${device.laptop}) {
-    /*
-   :root {
-    
-     --sidebar-width: clamp(4vw,7vw,10vw);
-     --nav-item-padding: clamp(0.5rem, 2vh, 1rem);
-     --sidebar-height: calc(104vh - var(--topbar-height) - var(--miniheader-height));
-
-     // Estilos para laptop
-     --topbar-height: 10vh;
-     --miniheader-height: 5vh;
-   }
-   
-      */
-  }
-  @media (max-width: ${device.laptopL}) {
-    :root {
-      /*
-      // Estilos para laptopL
-      --topbar-height: 10vh;
-      --miniheader-height: 5vh;
-      --sidebar-width: clamp(4vw,7vw,10vw);
-      --nav-item-padding: clamp(0.5rem, 2vh, 1rem);
-      --sidebar-height: calc(104vh - var(--topbar-height) - var(--miniheader-height));
-*/
-    }
-  }
-  @media (max-width: ${device.desktop}) {
-    :root {
-      // Estilos para desktop
-      /*
-      --topbar-height: 10vh;
-      --miniheader-height: 5vh;
-      --sidebar-width: clamp(4vw,7vw,10vw);
-      --nav-item-padding: clamp(0.5rem, 2vh, 1rem);
-      --sidebar-height: calc(104vh - var(--topbar-height) - var(--miniheader-height));
-      
-       */
-
-    }
-  }
-  @media (max-width: ${device.desktopL}) {
-    :root {
-      // Estilos para desktopL
-      --topbar-height: 10vh;
-      --miniheader-height: 5vh;
-      --sidebar-width: clamp(4vw,5vw,8vw);
-      --nav-item-padding: clamp(0.5rem, 2vh, 1rem);
-      --sidebar-height: calc(100vh - var(--topbar-height) - var(--miniheader-height));
-
-    }
-  }
-`;
-const marquee = keyframes`
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-`;
 
 const logoAnimation = keyframes`
   0% {
@@ -130,40 +39,7 @@ const logoAnimation = keyframes`
     transform: scale(1);
   }
 `;
-const MiniHeader = styled.div`
-  position: fixed;
-  width: 100vw;
-  height: var(--miniheader-height);
-  background-color: #24af4e;
-  text-align: center;
-  z-index: 22;
 
-  h3 {
-    color: white;
-    font-size: 1rem;
-    margin: 0;
-    padding: 0.5rem 0;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: ${marquee} 30s linear infinite;
-  }
-`;
-
-const TopBarElement = styled.div`
-  position: fixed;
-  height: var(--topbar-height);
-  background-color: hsla(0, 9%, 91%, 0.13);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 25;
-  margin-top: var(--miniheader-height);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 5vw;
-  width: 100vw;
-`;
 
 const LogoBanner = styled.div`
   cursor: pointer;
@@ -315,7 +191,7 @@ const glassmorphismTheme = {
 };
 
 const TopBar = () => {
-    let navigate = useNavigate();
+    const router = useRouter();
 
     config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
     const [searchQuery, setSearchQuery] = useState<string>("");
@@ -422,7 +298,6 @@ const TopBar = () => {
 
     return (
         <>
-            <GlobalStyle />
             <MiniHeader>
                 <MiniHeaderH3>
                     <a href={""} style={{ color: "inherit" }}>
@@ -431,7 +306,7 @@ const TopBar = () => {
                 </MiniHeaderH3>
             </MiniHeader>
             <TopBarElement id={"topBarElement"}>
-                <LogoBanner id={"logoBanner"} onClick={() => navigate("/")}>
+                <LogoBanner id={"logoBanner"} onClick={() => router.push("/")}>
                     <LogoBannerImg alt="logo" src={logo} />
                 </LogoBanner>
                 <SearchBarContainer id={"SearchBarContainer"}>

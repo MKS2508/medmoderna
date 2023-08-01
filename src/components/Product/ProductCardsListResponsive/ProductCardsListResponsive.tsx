@@ -5,7 +5,7 @@ import logo from '../../../assets/logo4.png';
 import Modal from 'react-modal';
 import ProductCardNew from '../../Product/ProductCardNew/ProductCardNew';
 import ProductCardDetailResponsive from '../ProductCardDetailResponsive/ProductCardDetailResponsive';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 

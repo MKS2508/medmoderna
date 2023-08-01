@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { AiOutlineEye } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const ProductCardNew = ({
                             name,

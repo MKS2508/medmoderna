@@ -1,6 +1,6 @@
 import {IProductProps} from "../../models/IProductProps";
 import React from "react";
-import {Link} from "react-router-dom";
+import Link from 'next/link';
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 import ContentLoader from "react-content-loader";
@@ -8,9 +8,7 @@ import ContentLoader from "react-content-loader";
 const ProductCard = (props: IProductProps) => {
 
     return <>
-
         <div className="card" key="card">
-
             <div className="imgBox">
                 <img
                     src={`${props.imgSrc}`}
@@ -20,13 +18,11 @@ const ProductCard = (props: IProductProps) => {
             <div className="contentBox">
                 <h3>{props.name || <Skeleton/>} </h3>
                 <h2 className="price">{props.price}€</h2>
-                <Link className="buy" to={`/product/${props.productId}`}> Ver Detalles </Link>
-                <Link className="buy" to={`/edit/${props.productId}`}> Editar </Link>
-
+                <Link href={`/product/${props.productId}`} className="buy">Ver Detalles</Link>
+                <Link href={`/edit/${props.productId}`} className="buy"> Editar</Link>
             </div>
 
         </div>
-
     </>
 };
 export const ProductCardLoading = ({

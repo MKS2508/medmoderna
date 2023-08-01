@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-import "./ProductSwitcher.css";
 import {IProductProps} from "../../../models/IProductProps";
 import ProductCardsListResponsive from "../ProductCardsListResponsive/ProductCardsListResponsive";
 

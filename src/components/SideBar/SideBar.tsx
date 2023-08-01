@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import 'font-awesome/css/font-awesome.css';
 import '@fortawesome/fontawesome-svg-core/styles.css'; // import Font Awesome CSS
 import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = true; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 import { AnimatePresence, motion } from 'framer-motion';
 import MenuItem from './MenuItem';
-import styled, {createGlobalStyle} from 'styled-components';
+import styled from 'styled-components';
 import {device, menuItems} from "../../WebParameters";
 
 
@@ -59,8 +59,8 @@ interface ISideBarProps {
 const SideBar: React.FC<ISideBarProps> = ({ sideBarMenuItems }) => {
     const [isVisible, setIsVisible] = useState(true);
     const [pageState, setPageState] = useState('');
-    const location = useLocation();
-    const navigate = useNavigate();
+
+    const router = useRouter();
 
     useEffect(() => {
         const listenToScroll = () => {
@@ -87,8 +87,8 @@ const SideBar: React.FC<ISideBarProps> = ({ sideBarMenuItems }) => {
     }, []);
 
     const getCurrentPage = (): string => {
-        console.warn({ location: location.pathname });
-        return location.pathname;
+        console.warn({ location: router.pathname });
+        return router.pathname;
     };
 
     const sidebarVariants = {
@@ -125,7 +125,7 @@ const SideBar: React.FC<ISideBarProps> = ({ sideBarMenuItems }) => {
                                             item={item}
                                             index={index}
                                             page={pageState}
-                                            navigate={navigate}
+                                            navigate={router.push}
                                         />
                                     ))}
                                 </MenuItemList>

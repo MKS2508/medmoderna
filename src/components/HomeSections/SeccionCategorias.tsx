@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./SeccionCategorias.css";
 import { FaCannabis, FaTshirt, FaCapsules, FaHandHoldingWater, FaLightbulb } from "react-icons/fa";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import { ICategoryProps } from "../../models/ICategoryProps";
@@ -15,14 +14,41 @@ interface ISeccionCategoriasProps {
     categories: ICategoryProps[];
 }
 
+function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+        width: 0,
+        height: 0,
+    });
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return windowSize;
+}
+
+// ...
 const SeccionCategorias: React.FC<ISeccionCategoriasProps> = ({ title, videoSrc, isVideoFetched , height, categories}) => {
 
+    // Usa la función para obtener el tamaño de la ventana
+    const windowSize = useWindowSize();
 
     return (
         <SeccionResponsiveVideoBackground
             title={title}
             videoSrc={videoSrc}
-            height={(window.innerWidth >= 768) ? height : "40vh"}
+            // Usa `windowSize.width` en lugar de `window.innerWidth`
+            height={(windowSize.width >= 768) ? height : "40vh"}
             hasVideo={true} hideContentContainer={false} useAutoHeightContent={false}
             isVideoFetched={(fetched) =>{isVideoFetched(fetched) ;console.log('Video fetched:', fetched)}}
         >

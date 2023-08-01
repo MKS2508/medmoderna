@@ -1,8 +1,6 @@
 import {IProductProps} from "../../models/IProductProps";
 import React from "react";
-import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
-import './ProductCardList.css'
 
 const ProductCardList = (props: IProductProps) => {
     const transition = {

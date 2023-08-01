@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { motion } from "framer-motion";
-import "./ProductCardDetailResponsive.css";
-import {Link} from "react-router-dom";
+import Link from 'next/link';
 import logo from "../../../assets/logo4.png"
 import { PayPalButton } from "react-paypal-button-v2";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -82,18 +81,18 @@ const ProductCardDetailResponsive: React.FC<Props> = ({
                 <nav className="navbar">
                     <ul className="navbar-menu">
                         <li>
-                            <Link className="glass-button" to={`/${category}`}>
-                                <span className="boldi">Volver a la categoría de productos de {category}</span>
+                            <Link href={`/${category}`} className="glass-button">
+                                    <span className="boldi">Volver a la categoría de productos de {category}</span>
+
                             </Link>
                         </li>
                         <li>
-                            <Link className="glass-button"  to={`/MARCAS/${brand}`}>
-                                <span className="boldi">Mas productos de la marca {brand}</span>
+                            <Link href={`/MARCAS/${brand}`} className="glass-button">
+                                    <span className="boldi">Mas productos de la marca {brand}</span>
                             </Link>
                         </li>
                     </ul>
-                </nav>
-                <motion.div
+                </nav>                <motion.div
                     className="product-card-detail-responsive"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -120,12 +119,12 @@ const ProductCardDetailResponsive: React.FC<Props> = ({
                                 <h2>
                                     {name}
                                     <br />
-                                    <span><Link   to={"/MARCAS/" + brand} > <span style={{ textDecoration: "none", color: "71B957FF", fontWeight: 900}} >{brand}</span></Link></span>
+                                    <span><Link   href={"/MARCAS/" + brand} > <span style={{ textDecoration: "none", color: "71B957FF", fontWeight: 900}} >{brand}</span></Link></span>
                                 </h2>
                                 <p className="product-description"> {description}</p>
                                 <p className="product-price">{price.toFixed(2)}€</p>
                                 <p className="product-id">Product ID: {productId}</p>
-                                <p className="product-category">Categoría: <Link  to={"/" + category} > <span  >{category}</span></Link></p>
+                                <p className="product-category">Categoría: <Link  href={"/" + category} > <span  >{category}</span></Link></p>
                                 <p className="product-colors">
                                     Tamaños disponibles:
                                     <span className="red"></span>

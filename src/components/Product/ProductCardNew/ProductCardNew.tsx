@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import "./ProductCardNew.css";
 import { IProductProps } from "../../../models/IProductProps";
 import logo1 from "../../../assets/logo4blanco.svg"
 import logo2 from "../../../assets/logo4svg.svg"
@@ -9,8 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { motion } from "framer-motion";
 import {AiOutlineEye} from "react-icons/ai";
-import { useLocation, useNavigate } from 'react-router-dom';
-
+import { useRouter } from 'next/router';
+import  Link from 'next/link';
 
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -31,6 +29,7 @@ interface IProductCardProps extends IProductProps {
 const ProductCardNew: React.FC<IProductCardProps> = ({ name, productId,  description, price, imgSrc, maxLines, maxCharsPerLine, index, blur, mobileVersion }) => {
     const [spans, setSpans] = useState<JSX.Element[]>([]);
     const [logo, setLogo] = useState<string>(logo1);
+    const router = useRouter();
 
     const lines = description.split("\n");
     const shortenedLines = lines.slice(0, maxLines).map((line) => {
@@ -72,7 +71,6 @@ const ProductCardNew: React.FC<IProductCardProps> = ({ name, productId,  descrip
             progress: undefined,
         });
     };
-    const navigate = useNavigate();
 
     return (
         <>
@@ -102,7 +100,7 @@ const ProductCardNew: React.FC<IProductCardProps> = ({ name, productId,  descrip
                     <div className={!mobileVersion ? "prod-details-new" : "prod-details-mobile"}>
                         <div className={!mobileVersion ? "prod-price-new" : "prod-price-mobile"}><span>{price.toFixed(2)}€</span></div>
                         <div className={!mobileVersion ? "prod-card-new-button-container" : "prod-card-mobile-button-container"}>
-                            <button onClick={() => {navigate(`/product/${productId}`)}} className={!mobileVersion ? "prod-card-new-button details-button" : "prod-card-mobile-button details-button-mobile"}>
+                            <button onClick={() => {router.push(`/product/${productId}`)}} className={!mobileVersion ? "prod-card-new-button details-button" : "prod-card-mobile-button details-button-mobile"}>
                                 <AiOutlineEye size="30" />
                             </button>
                             <button className={!mobileVersion ? "prod-card-new-button cart-button" : "prod-card-mobile-button cart-button-mobile"}>

@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@capacitor/android": "^4.5.0",
@@ -27,6 +27,7 @@
     "framer-motion": "^6.5.1",
     "g-i-s": "^2.1.6",
     "google-img-scrap": "^1.0.8",
+    "next": "^13.4.12",
     "node-fetch": "^3.3.0",
     "react": "18.2.0",
     "react-content-loader": "^6.2.0",
@@ -39,7 +40,6 @@
     "react-modal": "^3.16.1",
     "react-paypal-button-v2": "^2.6.3",
     "react-responsive-carousel": "^3.2.23",
-    "react-router-dom": "^6.3.0",
     "react-scroll-text": "^1.0.1",
     "react-search-autocomplete": "^8.0.0",
     "react-social-media-embed": "^2.2.2",
