@@ -24,6 +24,7 @@ import {IoIosShirt} from "react-icons/io";
 import {AiOutlinePlusCircle} from "react-icons/ai";
 import React from "react";
 
+
 export const LOGO_CARRUSEL= "https://raw.githubusercontent.com/MKS2508/medmoderna-front/master/medmoderna-front/src/assets/logo3.png";
 export const IMAGEN_CARRUSEL_1 = fondo;
 export const IMAGEN_CARRUSEL_2 = fondo2;
