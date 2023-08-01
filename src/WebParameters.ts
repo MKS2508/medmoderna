@@ -12,7 +12,7 @@ export const VIDEO_LINK_1= "https://medmoderna.b-cdn.net/videoho2me3.mp4";
 export const VIDEO_POSTER_1= posterGifVideo1;
 export const VIDEO_LINK_2= "https://medmoderna.b-cdn.net/videohome3.mp4";
 export const VIDEO_LINK_3= "https://medmoderna.b-cdn.net/videohome3.mp4";
-export const VIDEO_LINK_4= "https://medmoderna.b-cdn.net/videohome3.mp4";
+export const VIDEO_LINK_4= "https://medmoderna.bs-cdn.net/videohome3.mp4";
 
 import fondo from './assets/fondo1.webp'
 import posterGifVideo1 from './assets/gif-poster-video-1.gif'
